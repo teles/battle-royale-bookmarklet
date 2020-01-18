@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Battle Royale Bookmarket</title>
+    <script src="src/br.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        @import url(https://fonts.googleapis.com/css?family=Lato);
+        header h1 {
+            font-family: Montserrat, "sans-serif";
+            font-size: 45px;
+            text-align: center;
+            color: #34495e;
+        }
+        header h1 .header-subtitile {
+            font-size: 0.35em;
+            margin-bottom: 5px;
+            position: relative;
+            text-transform: uppercase;
+        }
+        header h1 .header-subtitile:before, header h1 .header-subtitile:after {
+            content: "";
+            position: absolute;
+            width: 25%;
+            height: 2px;
+            top: 50%;
+            margin-top: -1px;
+            background-color: #34495e;
+        }
+        header h1 .header-subtitile:before {
+            left: -35%;
+        }
+        header h1 .header-subtitile:after {
+            right: -35%;
+        }
+        header h1 .header-title {
+            margin-top: 0;
+        }
+
+        html {
+            padding: 0 20px;
+            background-color: #ecf0f1;
+            font-family: "Lato", sans-serif;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>
+        <span class="header-subtitile">Só pode haver um</span>
+        <p class="header-title">Battle Royale Bookmarket</p>
+    </h1>
+    <main>
+        <button onclick="br.abre()">Abrir</button>
+    </main>
+</header>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "battle-royale-bookmarklet",
+  "version": "1.0.0",
+  "description": "Bookmarklet de navegador que simula a dinamica de um jogo estilo Battle Royale",
+  "main": "src/br.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bookmarklet" : "bookmarklet src/br.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teles/battle-royale-bookmarklet.git"
+  },
+  "author": "Teles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teles/battle-royale-bookmarklet/issues"
+  },
+  "homepage": "https://github.com/teles/battle-royale-bookmarklet#readme",
+  "devDependencies": {
+    "bookmarklet": "1.0.4"
+  }
+}

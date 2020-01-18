@@ -122,7 +122,20 @@ br.comeca = function comeca(itens = []){
 br.abre = function abre(){
     br.fecha();
     document.body.insertAdjacentElement("beforeend",br.componentes.modal("Battle Royale!",`Digite sua lista. 1 item por linha <span style="color: ${br.paleta.azul};cursor:pointer;" onclick="br.lista()">ou use uma lista salva.</span>`, `
-        <textarea data-sel="br-textarea" style="border: 1px solid rgb(216, 216, 216); resize: vertical; margin: 0px; width: 100%; height: 140px;"></textarea>
+        <textarea data-sel="br-textarea" style="border: 1px solid rgb(216, 216, 216); resize: vertical; margin: 0px; width: 100%; height: 140px;">
+Dona Deola
+Calle 54
+Serafim
+Alecrim
+Nutrikilo
+C3
+Vila Roma
+Cidade SP
+Sesc Paulista
+Divina Panela
+Savana
+Xodó    
+</textarea>
         <div style="display: flex; align-items: center; padding-top: 10px; ">
             <span style="display:flex;">
                 <input type="checkbox" id="lista-em-texto" data-sel="lista-em-texto">
