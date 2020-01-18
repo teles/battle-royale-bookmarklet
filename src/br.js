@@ -19,7 +19,7 @@ window.br = window.br || {
             const div = document.createElement("div");
             div.innerHTML = `<section style="position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;z-index:99999999999;justify-content:center;line-height:1.4;" data-sel="br-modal">
             <div style="position:absolute;width: 100%;height: 100%;background-color:rgba(0,0,0,.75);z-index: 1;cursor:pointer;" onclick="br.fecha()"></div>
-            <div style="position:relative;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.3);color:#444;z-index: 2;max-width:650px;">
+            <div style="position:relative;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.3);color:#444;z-index: 2;max-width:100%;">
                 <span onclick="br.fecha()" style="position: absolute; right: 0; width: 40px; text-align: center; flex-direction: column; cursor: pointer; font-size: 20px; padding: 10px; color: #d8d8d8; text-shadow: 0px 0px 1px hsl(0, 0%, 91%);">&times;</span>
                 <div style="padding: 10px;text-align: center;min-width: 400px;font-family: sans-serif;font-weight: 300;line-height: 1.2;"><p style="margin: 0;font-size: 20px;margin-top: 10px;color: #e74b3c;font-weight: 500;">${titulo}</p><p style="font-size: 12px;margin-top: 10px;color: #666;">${subtitulo}</p></div>
                 <div style="padding: 10px;border-top: 1px solid #d8d8d8;">
