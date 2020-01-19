@@ -44,18 +44,96 @@
             padding: 0 20px;
             background-color: #ecf0f1;
             font-family: "Lato", sans-serif;
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 960px;
+        }
+        .boxes {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .boxes .box {
+            margin: 10px;
+            min-height: 100px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            justify-content: center;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+            color: rgba(0, 0, 0, .65);
+        }
+
+        @media (min-width: 600px) {
+            .boxes .box {
+                width: calc( (100% / 3) - 20px );
+            }
         }
     </style>
 </head>
 <body>
 <header>
     <h1>
-        <span class="header-subtitile">Só pode haver um</span>
-        <p class="header-title">Battle Royale Bookmarket</p>
+        <span class="header-subtitile">Bookmarklet</span>
+        <p class="header-title">Battle Royale ⚔️</p>
     </h1>
-    <main>
-        <button onclick="br.abre()">Abrir</button>
+    <main class="container">
+        <div class="boxes" data-sel="boxes">
+            Carregando
+        </div>
     </main>
 </header>
+<script type="text/javascript">
+    let listas = [];
+
+    (function(){
+        const rgbs = `243, 166, 131; 247, 215, 148; 119, 139, 235; 231, 127, 103; 207, 106, 135; 241, 144, 102; 245, 205, 121; 84, 109, 229; 225, 95, 65; 196, 69, 105; 120, 111, 166; 248, 165, 194; 99, 205, 218; 234, 134, 133; 89, 98, 117; 87, 75, 144; 247, 143, 179; 61, 193, 211; 230, 103, 103; 48, 57, 82`.split(";");
+        var groupBy = function(xs, key) {
+            return xs.reduce(function(rv, x) {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        };
+
+        fetch("https://spreadsheets.google.com/feeds/cells/1cqEeC3kLWwDaZ1rvafQo2TE8qzGLV96HyN_7hXhbs1c/1/public/full?alt=json")
+            .then(response => response.json())
+            .then(response => {
+                return response.feed.entry.map(entry => {
+                    return {
+                        row: entry.gs$cell.row,
+                        column: entry.gs$cell.col,
+                        content: entry.gs$cell.$t
+                    }
+            })})
+            .then(data => {
+                return groupBy(data, "column");
+            }).then(columns => {
+                return Object.values(columns).map(item => {
+                    return {
+                        nome: item[0].content,
+                        itens: item.slice(1).map(item => item.content).join("\n")
+                    }
+                })
+            })
+            .then(lists => {
+                listas = lists;
+                document.querySelector("[data-sel='boxes']").innerHTML = `<div class="box" onclick="br.abre()" style="background-color: #fff">Cria sua própria lista</div>`
+                    .concat(lists.map((list, index) => {
+                        return `<div class="box" onclick="br.abre(listas[${index}].itens)" style="background-color: rgb(${rgbs[index]})">${list.nome}</div>`;
+                    }).join(""));
+            })
+
+
+
+    }());
+</script>
 </body>
 </html>

@@ -37,7 +37,7 @@ window.br = window.br || {
         },
         desafiante: (desafiante) => {
             const imagem = desafiante.match(new RegExp("^(https?|ftp)://.*(jpeg|png|gif|bmp|jpg)", "ig"));
-            return imagem === null ? desafiante : `<img src="${desafiante}" style="max-width: 96px; vertical-align: middle;" />`;
+            return imagem === null ? desafiante : `<img src="${desafiante}" style="max-height: 120px; vertical-align: middle;" />`;
         },
         checkbox: (texto) => {
             return `<span style="display:flex;cursor: pointer;">
