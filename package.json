@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/teles/battle-royale-bookmarklet#readme",
   "devDependencies": {
-    "bookmarklet": "1.0.4"
+    "bookmarklet": "3.0.0"
   }
 }
